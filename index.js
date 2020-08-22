@@ -29,7 +29,7 @@ app.use(express.static('public'));
 
 // initialize mongodb
 const dbsetup = require("./setup/mongosetup");
-//const routes = require('./app/routes')(app);
+const routes = require('./app/routes')(app);
 
 
 // test default route
