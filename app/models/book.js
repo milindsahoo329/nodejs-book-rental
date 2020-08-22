@@ -1,4 +1,5 @@
 const mongoose  = require('mongoose');
+const { string } = require('joi');
 const BookSchema = new mongoose.Schema({
     name:{
         type: String,
@@ -14,6 +15,9 @@ const BookSchema = new mongoose.Schema({
     customerId :{
         type:String,
         ref:'Customer'
+    },
+    bookType: {
+        type:String
     }
 },{
     timestamps:true

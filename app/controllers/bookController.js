@@ -11,7 +11,8 @@ module.exports = {
             name: Joi.string().required(),
             issueDate: Joi.date().required(),
             returnDate: Joi.date(),
-            customerId: Joi.string().required()
+            customerId: Joi.string().required(),
+            bookType: Joi.string(),
         });
 
         const validation = await schema.validate(req.body);
@@ -24,13 +25,14 @@ module.exports = {
             });
         } else {
 
-            const { name, issueDate, returnDate, customerId } = req.body;
+            const { name, issueDate, returnDate, customerId, bookType } = req.body;
 
             Book.create({
                 name, 
                 issueDate,
                 returnDate,
-                customerId
+                customerId,
+                bookType
             })
             .then((book)=>{
                 return res.status(201).send(book);
