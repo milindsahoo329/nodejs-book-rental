@@ -26,8 +26,6 @@ module.exports = {
 
             const { name, issueDate, returnDate, customerId } = req.body;
 
-            let _id =  Math.random().toString(36).substring(7);
-
             Book.create({
                 name, 
                 issueDate,
