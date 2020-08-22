@@ -13,7 +13,15 @@ module.exports = {
             let b = moment(element.returnDate);
             let days = b.diff(a,'days');
             let type = element.bookType != null ? element.bookType : "regular";
-            sum = sum + days*calc[type];
+            let rentalObject = new calc.rentalFunctions(days);
+            if(type == "novel"){
+                sum = sum + rentalObject.novel();
+            } else if ( type == "fiction"){
+                sum = sum + rentalObject.fiction();
+            } else {
+                sum = sum + rentalObject.regular();
+            }
+            
         });
 
         let result = {
